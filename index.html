@@ -3,59 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faire-part de Mariage</title>
+    <title>Faire-part de Mariage - Fanny & Virginie</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Hero Section avec image de fond -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <div class="ornament pulse">❦</div>
+            <h1 class="hero-title">Fanny & Virginie</h1>
+            <p class="hero-subtitle">Se marient</p>
+            <div class="ornament pulse">❦</div>
+            <div class="hero-date">15 Juin 2026</div>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
     <div class="container">
-        <header class="header">
-            <div class="ornament">❦</div>
+        <header class="header slide-up">
+            <div class="ornament rotate-on-hover">❦</div>
             <h1 class="title">Faire-part de Mariage</h1>
-            <div class="ornament">❦</div>
+            <div class="ornament rotate-on-hover">❦</div>
         </header>
 
         <main class="content">
-            <section class="couple">
-                <h2 class="names">Prénom & Prénom</h2>
-                <p class="subtitle">ont le plaisir de vous inviter à leur mariage</p>
+            <section class="couple slide-up delay-1">
+                <h2 class="names">Fanny & Virginie</h2>
+                <p class="subtitle">ont le plaisir de vous inviter à célébrer leur union</p>
             </section>
 
-            <section class="details">
-                <div class="detail-item">
+            <!-- Galerie de photos -->
+            <section class="gallery slide-up delay-2">
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in-up">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop" alt="Couple de mariés">
+                    </div>
+                    <div class="gallery-item fade-in-up delay-1">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&h=600&fit=crop" alt="Détails mariage">
+                    </div>
+                    <div class="gallery-item fade-in-up delay-2">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop" alt="Bouquet de mariée">
+                    </div>
+                </div>
+            </section>
+
+            <section class="details slide-up delay-3">
+                <div class="detail-item zoom-on-hover">
+                    <div class="detail-icon">📅</div>
                     <h3>Date</h3>
-                    <p>Samedi XX Mois XXXX</p>
+                    <p>Samedi 15 Juin 2026</p>
                     <p class="time">à 15h00</p>
                 </div>
 
-                <div class="detail-item">
-                    <h3>Lieu</h3>
-                    <p>Nom du lieu</p>
-                    <p class="address">Adresse complète</p>
-                    <p class="address">Code postal Ville</p>
+                <div class="detail-item zoom-on-hover">
+                    <div class="detail-icon">⛪</div>
+                    <h3>Cérémonie</h3>
+                    <p>Église Saint-Pierre</p>
+                    <p class="address">12 Place de l'Église</p>
+                    <p class="address">75001 Paris</p>
                 </div>
 
-                <div class="detail-item">
+                <div class="detail-item zoom-on-hover">
+                    <div class="detail-icon">🥂</div>
                     <h3>Réception</h3>
-                    <p>Dîner et soirée dansante</p>
+                    <p>Château de la Belle Vue</p>
+                    <p class="address">Dîner et soirée dansante</p>
                     <p class="time">à partir de 19h00</p>
                 </div>
             </section>
 
-            <section class="rsvp">
+            <!-- Citation romantique -->
+            <section class="quote slide-up delay-4">
+                <blockquote>
+                    <p>"L'amour ne consiste pas à se regarder l'un l'autre, mais à regarder ensemble dans la même direction."</p>
+                    <cite>- Antoine de Saint-Exupéry</cite>
+                </blockquote>
+            </section>
+
+            <section class="rsvp slide-up delay-5">
                 <h3>Merci de confirmer votre présence</h3>
-                <p>Avant le XX Mois XXXX</p>
+                <p class="rsvp-deadline">Avant le 15 Mai 2026</p>
                 <div class="contact">
-                    <p>Email : <a href="mailto:contact@exemple.fr">contact@exemple.fr</a></p>
-                    <p>Téléphone : 06 XX XX XX XX</p>
+                    <p>Email : <a href="mailto:fanny.virginie2026@exemple.fr">fanny.virginie2026@exemple.fr</a></p>
+                    <p>Téléphone : 06 12 34 56 78</p>
+                </div>
+                <div class="rsvp-button-container">
+                    <a href="mailto:fanny.virginie2026@exemple.fr?subject=RSVP Mariage Fanny & Virginie" class="rsvp-button">Confirmer ma présence</a>
                 </div>
             </section>
         </main>
 
-        <footer class="footer">
-            <div class="ornament">✦</div>
+        <footer class="footer fade-in">
+            <div class="ornament rotate-on-hover">✦</div>
             <p>Nous avons hâte de partager ce jour avec vous</p>
-            <div class="ornament">✦</div>
+            <div class="ornament rotate-on-hover">✦</div>
         </footer>
     </div>
+
+    <!-- Script pour les animations au scroll -->
+    <script>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-up, .fade-in-up, .zoom-on-hover').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Animation smooth scroll
+        document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
