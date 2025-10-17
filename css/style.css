@@ -1,0 +1,161 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+.container {
+    max-width: 800px;
+    background: white;
+    padding: 60px 40px;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+.header {
+    margin-bottom: 50px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 30px;
+}
+
+.ornament {
+    font-size: 2em;
+    color: #d4af37;
+    margin: 10px 0;
+}
+
+.title {
+    font-size: 2.5em;
+    color: #2c3e50;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 20px 0;
+}
+
+/* Section couple */
+.couple {
+    margin: 40px 0;
+}
+
+.names {
+    font-size: 3em;
+    color: #d4af37;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #555;
+    font-style: italic;
+}
+
+/* Détails */
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 60px 0;
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-item h3 {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.detail-item p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.time {
+    font-style: italic;
+    color: #888;
+}
+
+.address {
+    font-size: 1em;
+}
+
+/* RSVP */
+.rsvp {
+    margin: 40px 0;
+}
+
+.rsvp h3 {
+    font-size: 1.3em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.rsvp p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.contact {
+    margin-top: 20px;
+}
+
+.contact a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact a:hover {
+    color: #b8962e;
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #d4af37;
+    font-style: italic;
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .title {
+        font-size: 1.8em;
+    }
+
+    .names {
+        font-size: 2em;
+    }
+
+    .detail-item h3 {
+        font-size: 1.2em;
+    }
+}
