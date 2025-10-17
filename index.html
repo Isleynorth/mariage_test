@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Audio de fond -->
+    <audio id="backgroundMusic" autoplay loop muted preload="auto">
+        <source src="audio/musique-mariage.mp3" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <!-- Contrôle musical flottant -->
+    <div id="musicControl" class="music-control" title="Cliquez pour activer la musique">
+        <span id="musicIcon" class="music-icon">🎵</span>
+        <span id="musicStatus" class="music-status">Cliquez pour la musique</span>
+    </div>
+
     <!-- Hero Section avec image de fond -->
     <section class="hero">
         <div class="hero-overlay"></div>
@@ -127,6 +139,114 @@
         document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
             document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
         });
+
+        // ============================================
+        // CONTRÔLE MUSICAL
+        // ============================================
+        const audio = document.getElementById('backgroundMusic');
+        const musicControl = document.getElementById('musicControl');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicStatus = document.getElementById('musicStatus');
+
+        let isMuted = true;
+        let isPlaying = false;
+
+        // Charger la préférence utilisateur depuis localStorage
+        const savedMusicState = localStorage.getItem('weddingMusicEnabled');
+
+        // Fonction pour mettre à jour l'interface
+        function updateUI() {
+            if (!isPlaying) {
+                musicControl.classList.remove('playing', 'muted');
+                musicIcon.textContent = '🔇';
+                musicStatus.textContent = 'Musique en pause';
+            } else if (isMuted) {
+                musicControl.classList.remove('playing');
+                musicControl.classList.add('muted');
+                musicIcon.textContent = '🔇';
+                musicStatus.textContent = 'Cliquez pour activer';
+            } else {
+                musicControl.classList.add('playing');
+                musicControl.classList.remove('muted');
+                musicIcon.textContent = '🎵';
+                musicStatus.textContent = 'Musique activée';
+            }
+        }
+
+        // Fonction pour activer/désactiver la musique
+        function toggleMusic() {
+            if (!isPlaying) {
+                // Démarrer la lecture
+                audio.play().then(() => {
+                    isPlaying = true;
+                    isMuted = false;
+                    audio.muted = false;
+                    localStorage.setItem('weddingMusicEnabled', 'true');
+                    updateUI();
+                }).catch(err => {
+                    console.log('Autoplay bloqué, utilisateur doit interagir:', err);
+                });
+            } else if (isMuted) {
+                // Réactiver le son
+                audio.muted = false;
+                isMuted = false;
+                localStorage.setItem('weddingMusicEnabled', 'true');
+                updateUI();
+            } else {
+                // Désactiver la musique (pause)
+                audio.pause();
+                isPlaying = false;
+                isMuted = true;
+                localStorage.setItem('weddingMusicEnabled', 'false');
+                updateUI();
+            }
+        }
+
+        // Event listener pour le contrôle
+        musicControl.addEventListener('click', toggleMusic);
+
+        // Démarrage automatique de la musique
+        window.addEventListener('load', () => {
+            // Tenter de démarrer la musique avec son
+            audio.muted = false;
+            audio.play().then(() => {
+                isPlaying = true;
+                isMuted = false;
+                localStorage.setItem('weddingMusicEnabled', 'true');
+                updateUI();
+            }).catch(() => {
+                // Si bloqué par le navigateur, essayer en muted
+                audio.muted = true;
+                audio.play().then(() => {
+                    isPlaying = true;
+                    isMuted = true;
+                    updateUI();
+                }).catch(() => {
+                    // Si toujours bloqué, rester en pause
+                    isPlaying = false;
+                    isMuted = true;
+                    updateUI();
+                });
+            });
+        });
+
+        // Détecter si la musique se joue automatiquement (peu probable)
+        audio.addEventListener('play', () => {
+            if (!isPlaying) {
+                isPlaying = true;
+                updateUI();
+            }
+        });
+
+        audio.addEventListener('pause', () => {
+            if (isPlaying) {
+                isPlaying = false;
+                updateUI();
+            }
+        });
+
+        // Initialiser l'UI
+        updateUI();
     </script>
 </body>
 </html>
