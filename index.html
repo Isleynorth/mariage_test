@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faire-part de Mariage - Fanny & Virginie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Particules magiques flottantes -->
+    <div class="particles">
+        <span class="particle" style="--delay: 0s; --duration: 8s; --x: 10%; --y: 20%;">✨</span>
+        <span class="particle" style="--delay: 1s; --duration: 10s; --x: 80%; --y: 30%;">⭐</span>
+        <span class="particle" style="--delay: 2s; --duration: 12s; --x: 20%; --y: 60%;">💫</span>
+        <span class="particle" style="--delay: 0.5s; --duration: 9s; --x: 60%; --y: 40%;">✨</span>
+        <span class="particle" style="--delay: 1.5s; --duration: 11s; --x: 90%; --y: 70%;">🌟</span>
+        <span class="particle" style="--delay: 2.5s; --duration: 13s; --x: 15%; --y: 80%;">⭐</span>
+        <span class="particle" style="--delay: 0.8s; --duration: 10s; --x: 40%; --y: 15%;">✨</span>
+        <span class="particle" style="--delay: 1.8s; --duration: 14s; --x: 70%; --y: 85%;">💫</span>
+        <span class="particle" style="--delay: 2.2s; --duration: 9s; --x: 25%; --y: 45%;">🌟</span>
+        <span class="particle" style="--delay: 1.2s; --duration: 11s; --x: 85%; --y: 55%;">✨</span>
+    </div>
+
     <!-- Audio de fond -->
     <audio id="backgroundMusic" autoplay loop muted preload="auto">
         <source src="audio/musique-mariage.mp3" type="audio/mpeg">
@@ -22,6 +39,16 @@
     <!-- Hero Section avec image de fond -->
     <section class="hero">
         <div class="hero-overlay"></div>
+        <!-- Aurore boréale -->
+        <div class="aurora"></div>
+        <!-- Étoiles filantes -->
+        <div class="shooting-stars">
+            <span class="shooting-star" style="--delay: 2s; --duration: 1.5s; --top: 10%; --left: 20%;"></span>
+            <span class="shooting-star" style="--delay: 5s; --duration: 1.8s; --top: 30%; --left: 60%;"></span>
+            <span class="shooting-star" style="--delay: 8s; --duration: 1.6s; --top: 50%; --left: 80%;"></span>
+            <span class="shooting-star" style="--delay: 11s; --duration: 1.7s; --top: 20%; --left: 40%;"></span>
+            <span class="shooting-star" style="--delay: 14s; --duration: 1.9s; --top: 60%; --left: 15%;"></span>
+        </div>
         <div class="hero-content fade-in">
             <div class="ornament pulse">🌙</div>
             <h1 class="hero-title">Fanny & Virginie</h1>
@@ -45,7 +72,39 @@
             <section class="couple slide-up delay-1">
                 <h2 class="names">Fanny & Virginie</h2>
                 <p class="subtitle">ont le plaisir de vous inviter à célébrer leur union</p>
+
+                <!-- Compte à rebours -->
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">0</span>
+                        <span class="countdown-label">Jours</span>
+                    </div>
+                    <div class="countdown-separator">🌙</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">0</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-separator">✨</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">0</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-separator">💫</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">0</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
+                </div>
             </section>
+
+            <!-- Séparateur décoratif -->
+            <div class="section-divider">
+                <span class="divider-icon">🌙</span>
+                <span class="divider-line"></span>
+                <span class="divider-icon">✨</span>
+                <span class="divider-line"></span>
+                <span class="divider-icon">🌙</span>
+            </div>
 
             <!-- Galerie de photos -->
             <section class="gallery slide-up delay-2">
@@ -61,6 +120,15 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Séparateur décoratif -->
+            <div class="section-divider">
+                <span class="divider-icon">🔮</span>
+                <span class="divider-line"></span>
+                <span class="divider-icon">💫</span>
+                <span class="divider-line"></span>
+                <span class="divider-icon">🔮</span>
+            </div>
 
             <section class="details slide-up delay-3">
                 <div class="detail-item zoom-on-hover">
@@ -95,6 +163,15 @@
                 </blockquote>
             </section>
 
+            <!-- Séparateur décoratif -->
+            <div class="section-divider">
+                <span class="divider-icon">🕯️</span>
+                <span class="divider-line"></span>
+                <span class="divider-icon">⭐</span>
+                <span class="divider-line"></span>
+                <span class="divider-icon">🕯️</span>
+            </div>
+
             <section class="rsvp slide-up delay-5">
                 <h3>Merci de confirmer votre présence</h3>
                 <p class="rsvp-deadline">Avant le 15 Avril 2026</p>
@@ -115,8 +192,52 @@
         </footer>
     </div>
 
+    <!-- Bouton retour en haut -->
+    <button id="backToTop" class="back-to-top" title="Retour en haut">
+        🌙
+    </button>
+
+    <!-- Barre de progression de scroll -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Lightbox pour la galerie -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <span class="lightbox-prev">&#10094;</span>
+            <img id="lightboxImg" src="" alt="Image agrandie">
+            <span class="lightbox-next">&#10095;</span>
+        </div>
+        <div class="lightbox-caption"></div>
+    </div>
+
     <!-- Script pour les animations au scroll -->
     <script>
+        // ============================================
+        // CURSOR TRAIL (Traînée de curseur)
+        // ============================================
+        let lastSparkleTime = 0;
+        const sparkleDelay = 50; // ms entre chaque étincelle
+        const sparkleEmojis = ['✨', '⭐', '💫', '🌟'];
+
+        document.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastSparkleTime < sparkleDelay) return;
+            lastSparkleTime = now;
+
+            const sparkle = document.createElement('span');
+            sparkle.className = 'cursor-sparkle';
+            sparkle.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        });
+
         // Animation au scroll
         const observerOptions = {
             threshold: 0.1,
@@ -138,6 +259,126 @@
         // Animation smooth scroll
         document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
             document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // ============================================
+        // COMPTE À REBOURS
+        // ============================================
+        const weddingDate = new Date('2026-05-30T15:30:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p style="font-size: 2em; color: #fbbf24;">Le grand jour est arrivé! ✨</p>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        // Mettre à jour immédiatement puis toutes les secondes
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ============================================
+        // BACK TO TOP BUTTON & SCROLL PROGRESS
+        // ============================================
+        const backToTopBtn = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+
+        window.addEventListener('scroll', () => {
+            // Scroll progress bar
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
+
+            // Back to top button
+            if (winScroll > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ============================================
+        // LIGHTBOX GALERIE
+        // ============================================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.querySelector('.lightbox-caption');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const prevBtn = document.querySelector('.lightbox-prev');
+        const nextBtn = document.querySelector('.lightbox-next');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            const img = galleryItems[index];
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            openLightbox(currentIndex);
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            openLightbox(currentIndex);
+        }
+
+        // Event listeners
+        galleryItems.forEach((img, index) => {
+            img.addEventListener('click', () => openLightbox(index));
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', showNext);
+        prevBtn.addEventListener('click', showPrev);
+
+        // Fermer avec Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
+                showNext();
+            } else if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) {
+                showPrev();
+            }
+        });
+
+        // Fermer en cliquant sur le fond
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
         });
 
         // ============================================
